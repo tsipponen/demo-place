@@ -1,5 +1,6 @@
 package com.example.demo.Place;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +21,7 @@ public class PlaceController {
     }
 
     @GetMapping
-    public List<Place> getPlaces()
-    {
+    public List<Place> getPlaces() throws JsonProcessingException {
         return placeService.getPlaces();
     }
 }
