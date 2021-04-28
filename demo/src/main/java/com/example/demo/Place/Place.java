@@ -1,55 +1,37 @@
 package com.example.demo.Place;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.databind.JsonNode;
+import com.example.demo.Models.Data.Data;
+import com.example.demo.Models.Meta.Meta;
+import com.example.demo.Models.Tags.Tags;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 
 public class Place {
-    private String Name;
-    private String Address;
-    private boolean Open;
-    private JsonNode Details;
-    Map<String, Object> Others = new LinkedHashMap<>();
 
-    @JsonAnySetter
-    void setDetail(String key, Object value){
-        Others.put(key, value);
-    }
-    public Place()
-    {
+    private List<Data> Data;
+    private Meta Meta;
+    private Tags Tags;
 
+    public Place(){}
+
+    public Place(List<Data> data, Meta meta, Tags tags){
+        this.Data = data;
+        this.Meta = meta;
+        this.Tags = tags;
     }
 
-    public Place(String name, String address, boolean open, JsonNode details)
-    {
-        this.Name = name;
-        this.Address = address;
-        this.Open = open;
-        this.Details = details;
+    public List<Data> getData(){
+        return Data;
     }
+    public void setData(List<Data> data){ this.Data = data; }
 
-    public String getName()
-    {
-        return Name;
+    public Meta getMeta(){
+        return Meta;
     }
+    public void setMeta(Meta meta){ this.Meta = meta; }
 
-    public String getAddress()
-    {
-        return Address;
+    public Tags getTags(){
+        return Tags;
     }
-
-    public Boolean getOpen()
-    {
-        return Open;
-    }
-
-    public JsonNode getDetails()
-    {
-        return Details;
-    }
-    public String getData(){
-        return Others.get("data").toString();
-    }
+    public void setTags(){}
 }
