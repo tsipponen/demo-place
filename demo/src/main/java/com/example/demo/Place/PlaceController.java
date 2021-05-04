@@ -2,13 +2,13 @@ package com.example.demo.Place;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/places")
 public class PlaceController {
 
@@ -21,7 +21,7 @@ public class PlaceController {
     }
 
     @GetMapping
-    public List<Place> getPlaces() throws JsonProcessingException {
+    public Place getPlaces() throws JsonProcessingException {
         return placeService.getPlaces();
     }
 }
